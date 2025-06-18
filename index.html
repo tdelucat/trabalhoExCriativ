@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Tales Deluca</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #e0f2fe, #f3f4f6);
+        }
+        nav {
+            transition: all 0.3s ease;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <nav class="bg-blue-500 text-white fixed w-full top-0 p-4 shadow-md z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Portfólio de Tales</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#home" class="hover:text-blue-200 transition">Home</a></li>
+                <li><a href="#disciplinas" class="hover:text-blue-200 transition">Disciplinas</a></li>
+                <li><a href="#portfolio" class="hover:text-blue-200 transition">Projetos</a></li>
+                <li><a href="#sobre" class="hover:text-blue-200 transition">Sobre</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="home" class="pt-20 pb-16 text-center">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Bem-vindo ao Meu Portfólio</h2>
+            <p class="text-xl text-gray-700">Tales Deluca Tareszkiewicz Rezende</p>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Estudante de Ciência da Computação na PUCPR. Aqui estão as minhas disciplinas do 1º período e projetos desenvolvidos, com destaque para a disciplina Experiência Criativa: Navegando na Computação.</p>
+        </div>
+    </section>
+    <section id="disciplinas" class="py-16">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Disciplinas do Semestre</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg card">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Experiência Criativa: Navegando na Computação</h3>
+                    <p class="text-gray-600">Desenvolve habilidades criativas e práticas em computação, criando soluções inovadoras como jogos lógicos e sistemas para Smart Cities, com ênfase em programação e colaboração.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Sistemas Ciberfísicos</h3>
+                    <p class="text-gray-600">Explora sistemas ciberfísicos, que integram computação e sistemas físicos. Aborda computação ubíqua, sistemas embarcados e aplicações em transporte, saúde e energia.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Resolução de Problemas com Lógica Matemática</h3>
+                    <p class="text-gray-600">Ensina modelagem de problemas reais com lógica proposicional e de predicados, usando cálculo proposicional e de predicados para deduções e provas, preparando para disciplinas avançadas.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Raciocínio Algorítmico</h3>
+                    <p class="text-gray-600">Desenvolve pensamento computacional com algoritmos em Python, abordando variáveis, estruturas de controle, vetores, funções e boas práticas de programação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio" class="py-16 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Projetos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg card">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Jogo de Detetive: Mistério na Biblioteca</h3>
+                    <p class="text-gray-600 mb-4">Um jogo lógico em Python que usa lógica proposicional onde o jogador descobre quem matou o bibliotecário Cláudio, onde ocorreu o crime e a motivação, usando pistas aleatórias. (Experiência Criativa, Resolução de Problemas com Lógica Matemática)</p>
+                    <a href="Jogo_de_Detetive.pdf" class="text-blue-600 hover:underline" download>Baixar PDF do Projeto</a><br>
+                    <a href="Jogo_Detetive.py" class="text-blue-600 hover:underline" download>Baixar Código Principal</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Monitoramento e Controle de Semáforos com ESP32</h3>
+                    <p class="text-gray-600 mb-4">Protótipo para Smart Cities, controlando semáforos com ESP32 e LEDs, com simulação no Wokwi e potencial para IA. (Experiência Criativa)</p>
+                    <a href="Projeto_Semaforo_ESP32.pdf" class="text-blue-600 hover:underline" download>Baixar PDF do Projeto</a><br>
+                    <a href="https://wokwi.com/projects/443221910177628161" class="text-blue-600 hover:underline" target="_blank">Ver Simulação no Wokwi</a>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg card">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Sistema de Avaliação de Desempenho</h3>
+                    <p class="text-gray-600 mb-4">Sistema em Python que avalia o desempenho de 120 alunos com base em respostas a perguntas sobre aprendizado e produtividade, sugerindo ações para melhoria. (Raciocínio Algorítmico)</p>
+                    <a href="Main_Projeto2.py" class="text-blue-600 hover:underline" download>Baixar Código Principal</a><br>
+                    <a href="Bib.py" class="text-blue-600 hover:underline" download>Baixar Biblioteca</a><br>
+                    <a href="dados_coletado.csv" class="text-blue-600 hover:underline" download>Baixar Dados</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="sobre" class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Sobre Mim</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Tales Deluca Tareszkiewicz Rezende, estudante de Ciência da Computação na PUCPR. Apaixonado por tecnologia, programação e soluções inovadoras, desenvolvo projetos que combinam lógica, criatividade e impacto prático, como jogos lógicos e sistemas para Smart Cities.</p>
+        </div>
+    </section>
+    <footer class="bg-blue-500 text-white p-4 text-center">
+        <p>© 2025</p>
+    </footer>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault()
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                })
+            })
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav')
+            if (window.scrollY > 0) {
+                nav.classList.add('shadow-lg')
+            } else {
+                nav.classList.remove('shadow-lg')
+            }
+        })
+    </script>
+</body>
+</html>
