@@ -52,7 +52,8 @@
             <h1 class="text-xl font-bold">Portfólio de Tales</h1>
             <ul class="flex space-x-4">
                 <li><a href="#home" class="hover:underline">Home</a></li>
-                <li><a href="#portfolio" class="hover:underline">Portfólio</a></li>
+                <li><a href="#disciplinas" class="hover:underline">Disciplinas</a></li>
+                <li><a href="#portfolio" class="hover:underline">Projetos</a></li>
                 <li><a href="#sobre" class="hover:underline">Sobre</a></li>
                 <li><a href="#contato" class="hover:underline">Contato</a></li>
             </ul>
@@ -64,35 +65,60 @@
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold mb-4">Bem-vindo ao Meu Portfólio</h2>
             <p class="text-lg">Tales Deluca Tareszkiewicz Rezende</p>
-            <p class="mt-2">Estudante de Ciência da Computação na PUCPR. Aqui você encontrará meus projetos do semestre, com destaque para a disciplina Experiência Criativa: Navegando na Computação.</p>
+            <p class="mt-2">Estudante de Ciência da Computação na PUCPR. Aqui você encontrará minhas disciplinas do 1º período e projetos desenvolvidos, com destaque para a disciplina Experiência Criativa: Navegando na Computação.</p>
+        </div>
+    </section>
+
+    <!-- Disciplinas Section -->
+    <section id="disciplinas" class="py-16 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Disciplinas do Semestre</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Experiência Criativa: Navegando na Computação</h3>
+                    <p class="mb-4">Desenvolve habilidades criativas e práticas em computação, criando soluções inovadoras como jogos lógicos e sistemas para Smart Cities, com ênfase em programação e colaboração.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Sistemas Ciberfísicos</h3>
+                    <p class="mb-4">Explora sistemas ciberfísicos, integrando computação e sistemas físicos. Aborda computação ubíqua, sistemas embarcados e aplicações em transporte, saúde e energia.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Resolução de Problemas com Lógica Matemática</h3>
+                    <p class="mb-4">Ensina modelagem de problemas reais com lógica matemática, usando cálculo proposicional e de predicados para deduções e provas, preparando para disciplinas avançadas.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Raciocínio Algorítmico</h3>
+                    <p class="mb-4">Desenvolve pensamento computacional com algoritmos em Python, abordando variáveis, estruturas de controle, vetores, funções e boas práticas de programação.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-16 bg-gray-100">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">Portfólio</h2>
+            <h2 class="text-3xl font-bold text-center mb-8">Projetos</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Projeto: Jogo de Detetive -->
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold mb-2">Jogo de Detetive: Mistério na Biblioteca</h3>
-                    <p class="mb-4">Um jogo lógico onde o jogador descobre quem matou o bibliotecário Cláudio, onde ocorreu o crime (sala secreta, bloco 5) e a motivação (esconder o 'Arquivo Proibido'). Baseado em pistas lógicas apresentadas aleatoriamente.</p>
+                    <p class="mb-4">Um jogo lógico em Python onde o jogador descobre quem matou o bibliotecário Cláudio, onde ocorreu o crime e a motivação, usando pistas aleatórias. (Experiência Criativa)</p>
                     <a href="Jogo_de_Detetive.pdf" class="text-blue-600 hover:underline" download>Baixar PDF do Projeto</a>
                 </div>
                 <!-- Projeto: Semáforo ESP32 -->
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold mb-2">Monitoramento e Controle de Semáforos com ESP32</h3>
-                    <p class="mb-4">Protótipo de sistema inteligente para controle de semáforos usando ESP32, com LEDs simulando tráfego e suporte futuro para MQTT. Projetado para Smart Cities, reduzindo engarrafamentos.</p>
-                    <a href="Projeto_Semaforo_ESP32.pdf" class="text-blue-600 hover:underline" download>Baixar PDF do Projeto</a><br>
-                    <a href="https://wokwi.com/projects/433221425523807233" class="text-blue-600 hover:underline" target="_blank">Ver Simulação no Wokwi</a>
+                    <p class="mb-4">Protótipo para Smart Cities, controlando semáforos com ESP32 e LEDs, com simulação no Wokwi e potencial para IA. (Experiência Criativa)</p>
+                    <a href="Projeto_Semaforo_ESP32.pdf" class="text-blue-600 hover:underline" download>Baixar PDF</a><br>
+                    <a href="https://wokwi.com/projects/443221910177628161" class="text-blue-600 hover:underline" target="_blank">Ver Simulação no Wokwi</a>
                 </div>
                 <!-- Projeto: Sistema de Avaliação de Risco -->
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <h3 class="text-xl font-semibold mb-2">Sistema de Avaliação de Risco</h3>
-                    <p class="mb-4">Sistema em Python que avalia o nível de risco de 120 pessoas com base em respostas a perguntas sobre saúde mental e produtividade, sugerindo ações para minimizar sintomas.</p>
+                    <p class="mb-4">Sistema em Python que avalia o desempenho de 120 alunos com base em respostas a perguntas sobre aprendizado e produtividade, sugerindo ações para melhoria. (Raciocínio Algorítmico)</p>
                     <a href="Main_Projeto2.py" class="text-blue-600 hover:underline" download>Baixar Código Principal</a><br>
                     <a href="Bib.py" class="text-blue-600 hover:underline" download>Baixar Biblioteca</a><br>
-                    <a href="dados_coletados.py" class="text-blue-600 hover:underline" download>Baixar Dados</a>
+                    <a href="dados_coletado.csv" class="text-blue-600 hover:underline" download>Baixar Dados</a>
                 </div>
             </div>
         </div>
@@ -112,7 +138,6 @@
             <h2 class="text-3xl font-bold mb-4">Contato</h2>
             <p class="text-lg">Entre em contato comigo:</p>
             <p class="mt-2">E-mail: <a href="mailto:talesdelucat@gmail.com" class="text-blue-600 hover:underline">talesdelucat@gmail.com</a></p>
-            <p>LinkedIn: <a href="#" class="text-blue-600 hover:underline">[Adicione seu LinkedIn, se aplicável]</a></p>
         </div>
     </section>
 
