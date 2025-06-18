@@ -1,0 +1,136 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Tales Deluca</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Portfólio de Tales</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#home" class="hover:underline">Home</a></li>
+                <li><a href="#portfolio" class="hover:underline">Portfólio</a></li>
+                <li><a href="#sobre" class="hover:underline">Sobre</a></li>
+                <li><a href="#contato" class="hover:underline">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="py-16 bg-white text-center">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-4">Bem-vindo ao Meu Portfólio</h2>
+            <p class="text-lg">Tales Deluca Tareszkiewicz Rezende</p>
+            <p class="mt-2">Estudante de Ciência da Computação na PUCPR. Aqui você encontrará meus projetos do semestre, com destaque para a disciplina Experiência Criativa: Navegando na Computação.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Portfólio</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Projeto: Jogo de Detetive -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Jogo de Detetive: Mistério na Biblioteca</h3>
+                    <p class="mb-4">Um jogo lógico onde o jogador descobre quem matou o bibliotecário Cláudio, onde ocorreu o crime (sala secreta, bloco 5) e a motivação (esconder o 'Arquivo Proibido'). Baseado em pistas lógicas apresentadas aleatoriamente.</p>
+                    <a href="Jogo_de_Detetive.pdf" class="text-blue-600 hover:underline" download>Baixar PDF do Projeto</a>
+                </div>
+                <!-- Projeto: Semáforo ESP32 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Monitoramento e Controle de Semáforos com ESP32</h3>
+                    <p class="mb-4">Protótipo de sistema inteligente para controle de semáforos usando ESP32, com LEDs simulando tráfego e suporte futuro para MQTT. Projetado para Smart Cities, reduzindo engarrafamentos.</p>
+                    <a href="Projeto_Semaforo_ESP32.pdf" class="text-blue-600 hover:underline" download>Baixar PDF do Projeto</a><br>
+                    <a href="https://wokwi.com/projects/433221425523807233" class="text-blue-600 hover:underline" target="_blank">Ver Simulação no Wokwi</a>
+                </div>
+                <!-- Projeto: Sistema de Avaliação de Risco -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Sistema de Avaliação de Risco</h3>
+                    <p class="mb-4">Sistema em Python que avalia o nível de risco de 120 pessoas com base em respostas a perguntas sobre saúde mental e produtividade, sugerindo ações para minimizar sintomas.</p>
+                    <a href="Main_Projeto2.py" class="text-blue-600 hover:underline" download>Baixar Código Principal</a><br>
+                    <a href="Bib.py" class="text-blue-600 hover:underline" download>Baixar Biblioteca</a><br>
+                    <a href="dados_coletados.py" class="text-blue-600 hover:underline" download>Baixar Dados</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-16 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Sobre Mim</h2>
+            <p class="text-lg">Tales Deluca Tareszkiewicz Rezende, estudante de Ciência da Computação na PUCPR. Apaixonado por tecnologia, programação e soluções inovadoras, desenvolvo projetos que combinam lógica, criatividade e impacto prático, como jogos lógicos e sistemas para Smart Cities.</p>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-16 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Contato</h2>
+            <p class="text-lg">Entre em contato comigo:</p>
+            <p class="mt-2">E-mail: <a href="mailto:talesdelucat@gmail.com" class="text-blue-600 hover:underline">talesdelucat@gmail.com</a></p>
+            <p>LinkedIn: <a href="#" class="text-blue-600 hover:underline">[Adicione seu LinkedIn, se aplicável]</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white p-4 text-center">
+        <p>© 2025 - Portfólio de Tales Deluca Tareszkiewicz Rezende. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll para links da navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
